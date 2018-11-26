@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./utilities/css/bootstrap.min.css">
+
+    <!--Personalizacion Cuztomize-->
+    <link rel="stylesheet" href="./utilities/css/login.css">
+
+    <script type="text/javascript">
+        if (history.forward(1)) {
+            location.replace(history.forward(1));
+        }
+    </script>
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <form action="/login" method="POST" autocomplete="off">
+
+        <div class="container">
+            <% if (message.length > 0) { %>
+                <div class="row justify-content-md-center">
+                    <div class="alert alert-success col-md-6 col-md-auto">
+                        <%= message %>
+                    </div>
+                </div>
+
+                <% } %>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-6 col-md-auto login-box">
+                            <h1 class="text-center wdi-red">--WHATPUSH--</h1>
+                            <hr>
+                            <div class="form-row">
+
+                                <div class="col-md-12">
+                                    <input type="text" name="username" id="inp_username" class="form-control form-control-lg flat-input" placeholder="username">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="password" name="password" id="inp_pass" class="form-control form-control-lg flat-input" placeholder="password">
+                                </div>
+                                <button type="submit" id="btn_login" class="btn btn-lg btn-block btn-login ">Login</button>
+
+                                <div class="col-md-12 container-link">
+                                    <a class="link-btn" href="/recoverpassword">Forgot your password?</a>
+                                    <p>Still are you not a member? <a class="link-btn2" href="/register">Join now</a></p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </form>
+
+    <!-- div.container -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="utilities/js/jquery-3.3.1.min.js"></script>
+</body>
+
+</html>

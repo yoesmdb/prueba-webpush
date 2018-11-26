@@ -1,18 +1,40 @@
 {
-    "name": "pushsender",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
-    "dependencies": {
-        "body-parser": "^1.18.3",
-        "express": "^4.16.3",
-        "firebase-admin": "^6.0.0"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "start": "node server/server.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC"
+  "name": "whatpush",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-fileupload": "^1.0.0",
+    "express-session": "^1.15.6",
+    "firebase-admin": "^6.0.0",
+    "mysql": "github:mysqljs/mysql",
+    "nodemailer": "^4.6.8",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "randomstring": "^1.1.5",
+    "url-exists": "^1.0.3"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "williamPolo",
+  "license": "ISC",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoesmdb/prueba-webpush.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yoesmdb/prueba-webpush/issues"
+  },
+  "homepage": "https://github.com/yoesmdb/prueba-webpush#readme",
+  "description": "Projet whatpush"
 }

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ../templates/userAdvertiser/head.ejs %>
+</head>
+
+<body class="skin-black">
+
+    <%- include ../templates/userAdvertiser/topBar.ejs %>
+
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+
+            <%- include ../templates/userAdvertiser/leftMenu.ejs %>
+
+                <aside class="right-side">
+
+                    <section class="content">
+
+                        <!-- Main row -->
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel-group m-bot20" id="accordion">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a class="accordion-toggle color-btn-new-sites" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                            Add campaign
+                                                       </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse  collapse">
+                                            <div class="panel-body">
+                                                <form role="form" form ref='uploadForm' id='uploadForm' action='/saveCampaign' method='post' encType="multipart/form-data">
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="txt_campaignName">Campaign name:</label>
+                                                                <input type="text" class="form-control" id="txt_campaignName" name="txtCampaignName" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="txt_pushtitle">Push title:</label>
+                                                                <input type="text" class="form-control" id="txt_pushtitle" name="txtPushtitle" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="txt_pushdescrip">Push description:</label>
+                                                                <input type="text" class="form-control" id="txt_pushdescrip" name="txtPushdescrip" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="txt_urlPromo">Url to promote:</label>
+                                                                <input type="text" class="form-control" id="txt_urlPromo" name="txtUrlPromo" required>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="file-input-img">Upload image</label>
+                                                                <input type="file" id="file-input-img" name="fileImage" accept=".png, .jpg, .jpeg" required>
+                                                                <p class="help-block">The image must have a maximum size of 192 x 192.</p>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <label for="sel_tCountry">Deployment country</label>
+                                                            <select class="form-control m-b-12" id="sel_Country" name="selCountry" required>                                                 
+                                                                        <option  selected value="SELECT">---Select---</option>    
+                                                                    </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="txt_cpc">Topic</label>
+                                                            <select class="form-control m-b-12" id="sel_topic" name="selTopic" required>
+                                                                 
+                                                                            <option  selected value="SELECT">---Select---</option>                                        
+                                                                       
+                                                                        </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <br/>
+                                                            <div class="form-group">
+                                                                <label for="txt_totalBudget">Total Budget</label>
+                                                                <input type="number" value="25" class="form-control" id="txt_totalBudget" min="25" name="txtTotalBudget" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <br/>
+                                                            <div class="form-group">
+                                                                <label for="txt_dailyBudget">Daily Budget</label>
+                                                                <input type="number" value="5" class="form-control" id="txt_dailyBudget" min="5" name="txtDailyBudget" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <br/>
+                                                            <div class="form-group">
+                                                                <label for="txt_totalClicks">Total Clicks</label>
+                                                                <input type="number" value="0" class="form-control" id="txt_totalClicks" readonly name="txtTotalClicks">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <br/>
+                                                            <div class="form-group">
+                                                                <label for="txt_dailyClicks">Daily Clicks</label>
+                                                                <input type="number" value="0" class="form-control" id="txt_dailyClicks" readonly name="txtDailyClicks">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <br/>
+                                                            <div class="form-group">
+                                                                <label for="val_CPC">CPC</label>
+                                                                <input type="number" value="0" class="form-control" id="val_CPC" readonly name="valCPC">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <br/>
+                                                            <div class="form-group">
+                                                                <label for="VAL_CPM">CPM</label>
+                                                                <input type="number" value="0" class="form-control" id="VAL_CPM" readonly name="valCPM">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12">
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                         <input type="checkbox" name="chkAccept" required> Accept terms and conditions.
+                                                                        </label>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-info" id="brn_confirm">Confirm</button>
+                                                        </div>
+
+                                                    </div>
+                                                    <br/>
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-10 panelNotificationPreview">
+                                                            <div class="imgPush">
+                                                                <img id="imgShow" src="/utilities/images/26115.jpg" alt="img">
+                                                            </div>
+                                                            <div class="notification-body">
+                                                                <h4 for="h4-pushTitle" id="h4PushTittle">Push title</h4>
+                                                                <h6 for="h6-pushDescription" id="h4PushDescription">Push description</h6>
+                                                                <h6 for="h6-pushUrl" id="h4PushUrl">https://example.com</h6>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!--tab nav start-->
+                                <section class="panel general">
+                                    <header class="panel-heading tab-bg-dark-navy-blue">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a data-toggle="tab" href="#dataTablecampaigns">List of aggregated Campaigns</a>
+                                            </li>
+                                        </ul>
+                                    </header>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div id="dataTablePagesAdd" class="tab-pane active">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="panel">
+
+                                                            <div class="panel-body table-responsive">
+                                                                <table class="table table-condensed table-hover" id="tableUrls" width="100%">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>NAME CAMPAIGN</th>
+                                                                            <th>APPROVED</th>
+                                                                            <th>PAUSED</th>
+                                                                            <th>OPCIONS</th>
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    <tfoot>
+
+                                                                    </tfoot>
+
+                                                                    <tbody id="detailCampaign">
+                                                                    </tbody>
+
+
+                                                                </table>
+                                                            </div>
+                                                            <!-- /.box-body -->
+                                                        </div>
+                                                        <!-- /.box -->
+                                                    </div>
+
+                                                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalEdit" class="modal fade">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                                                    <h4 class="modal-title">EDIT URL</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1">FSFSFSDF</label>
+
+                                                                    </div>
+                                                                    <a class="btn btn-default">Confirm</a>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalDetail" class="modal fade">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                                                    <h4 class="modal-title">DETAIL</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                    <section class="panel general" id="panelScriptTable">
+                                                                        <header class="panel-heading tab-bg-dark-navy-blue">
+                                                                            <ul class="nav nav-tabs">
+                                                                                <li class="active">
+                                                                                    <a data-toggle="tab" href="#https">https</a>
+                                                                                </li>
+                                                                                <li class="">
+                                                                                    <a data-toggle="tab" href="#http">http</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </header>
+                                                                        <div class="panel-body">
+                                                                            <div class="tab-content">
+                                                                                <div id="https" class="tab-pane active">
+                                                                                    <div class="panel">
+                                                                                        <div class="panel-body">
+                                                                                            <p class="help-block">Copy and paste this code into your website before closing the &lt;/head&gt; tag.</p>
+                                                                                            <div class="panel-script table-responsive">
+                                                                                                <div class="backGroundCopy">
+                                                                                                    <span id="btn-copyText-modal" class="tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Copy text">
+                                                                                                            &nbsp;<i class="far fa-copy"></i>&nbsp;
+                                                                                                        </span>
+                                                                                                </div>
+
+                                                                                                <div id="script-genered-table" contenteditable="true">
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                            <br/>
+                                                                                            <p class="help-block">Download the generated file, unzip it and upload the files to the root directory ("public_html") of your website.</p>
+                                                                                            <button type="button" class="btn btn-add-url" id="btn-downloadFile-table">Download File</button>
+
+                                                                                        </div>
+                                                                                    </div>
+
+
+                                                                                </div>
+                                                                                <div id="http" class="tab-pane">
+                                                                                    http
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--tab nav start-->
+
+                            </div>
+                        </div>
+                        <!-- row end -->
+
+                    </section>
+                    <!-- /.content -->
+
+                    <%- include ../templates/userAdvertiser/footer.ejs %>
+                </aside>
+                <!-- /.right-side -->
+
+        </div>
+        <!-- ./wrapper -->
+
+        <%- include ../templates/userAdvertiser/importScripts.ejs %>
+            <!-- daterangepicker -->
+            <script src="./utilities/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+
+            <!-- iCheck -->
+            <script src="./utilities/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+
+            <!-- calendar -->
+            <script src="./utilities/js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+
+            <script src="./utilities/js/WhatPush/Adver/advertiserDB-campaings.js" type="text/javascript"></script>
+
+
+            <% if (message.length > 0) { %>
+                <div id="notificacion" class="notification-style">
+                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i> Success!
+                        </h4>
+                        <p>
+                            <%= message %>
+                        </p>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        setTimeout(() => {
+                            let mensaje =
+                                '<div class="alert alert-success alert-dismissible fade out" role="alert">' +
+                                '</div>';
+
+                            $('#notificacion').html(mensaje);
+
+                        }, 5000);
+                    });
+                </script>
+                <% } else{ %>
+                    <div id="notificacion" class="notification-style">
+                        <div class="alert alert-success alert-dismissible fade out" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                            <h4>
+                                <i class="icon-ok-sign"></i> Success!
+                            </h4>
+                            <p>Best check yo self, you're not looking too good...</p>
+                        </div>
+                    </div>
+                    <% } %>
+
+
+</body>
+
+</html>

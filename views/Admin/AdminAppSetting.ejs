@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ../templates/userAdmin/head.ejs %>
+</head>
+
+<body class="skin-black">
+
+    <%- include ../templates/userAdmin/topBar.ejs %>
+
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+
+            <%- include ../templates/userAdmin/leftMenu.ejs %>
+
+                <div id="notificacion" class="notification-style">
+                    <div class="alert alert-success alert-dismissible fade out" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i> Success!
+                        </h4>
+                        <p>Best check yo self, you're not looking too good...</p>
+                    </div>
+                </div>
+
+                <aside class="right-side">
+                    <section class="content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="panel-group m-bot20" id="accordionOne">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a id="accordionTiers" class="accordion-toggle color-btn-new-sites" data-toggle="collapse" data-parent="#accordionOne" href="#collapseOne">
+                                                    New tiers
+                                               </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse  collapse">
+                                            <div class="panel-body">
+                                                <div class="col-md-12">
+                                                    <form role="form">
+                                                        <div class="form-group">
+                                                            <label for="txt_nameTiers">Name tiers:</label>
+                                                            <input type="text" class="form-control" id="txt_nameTiers" name="txt_nameTiers">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="txt_nameDescription">Description:</label>
+                                                            <input type="text" class="form-control" id="txt_nameDescription" name="txt_nameDescription">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="num_cpc">CPC</label>
+                                                            <input class="form-control" type="text" id="num_cpc" name="num_cpc" value="0.01">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="num_cpm">CPM</label>
+                                                            <input class="form-control" type="text" id="num_cpm" name="num_cpm" value="0.02">
+                                                        </div>
+
+                                                        <button id="btn_addTier" type="button" class="btn btn-info">Confirm</button>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!--tab nav start-->
+                                <section class="panel general">
+                                    <header class="panel-heading tab-bg-dark-navy-blue">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a data-toggle="tab" href="#dataTableTiersAdd">List of aggregated tiers</a>
+                                            </li>
+                                        </ul>
+                                    </header>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div id="dataTableTiersAdd" class="tab-pane active">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="panel">
+
+                                                            <div class="panel-body table-responsive">
+                                                                <table class="table table-condensed table-hover" id="tableTiers" width="100%">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>NAME</th>
+                                                                            <th>CPC</th>
+                                                                            <th>CPM</th>
+                                                                            <th>DESCRIPTION</th>
+                                                                            <th>OPCIONS</th>
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    <tfoot>
+
+                                                                    </tfoot>
+
+                                                                    <tbody id="detailTiers">
+                                                                    </tbody>
+
+
+                                                                </table>
+                                                            </div>
+                                                            <!-- /.box-body -->
+                                                        </div>
+                                                        <!-- /.box -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--tab nav start-->
+                            </div>
+                        </div>
+
+                        <!--||||||||||||||||||||||||||||Inicio de Modal tier |||||||||||||||||||||||||||||-->
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalTier" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">DETAIL</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="txt_showNameTiers">Name tiers:</label>
+                                            <input type="text" class="form-control" id="txt_showNameTiers" name="txt_showNameTiers" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt_showNameDescription">Description:</label>
+                                            <input type="text" class="form-control" id="txt_showNameDescription" name="txt_showNameDescription" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="num_showCpc">CPC</label>
+                                            <input class="form-control" type="text" id="num_showCpc" name="num_showCpc" value="0.01" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="num_showCpm">CPM</label>
+                                            <input class="form-control" type="text" id="num_showCpm" name="num_showCpm" value="0.02" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div>
+                                            <button type="button" class="btn btn-success" onclick="EnableDisable('mTiers')" id="btnEnableDisable" style="float: left;">Enable</button>
+                                            <button type="button" class="btn btn-success" onclick="updateTier()" id="btn_updatetier" style="display: none; float: left;">Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--|||||||||||||||||||||||||||||||fin de modal tier |||||||||||||||||||||||||||||-->
+
+
+                        <!--||||||||||||||||||||||||||||Inicio de Modal delete tier |||||||||||||||||||||||||||||-->
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalConfirmDeleteTier" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">Delete</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Please press CONFIRM </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div>
+                                            <button type="button" class="btn btn-success" onclick="DeleteTiers()" id="btnDeleteTier" style="float: left;" data-dismiss="modal">CONFIRM</button>
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--|||||||||||||||||||||||||||||||fin de modal DELETE tier |||||||||||||||||||||||||||||-->
+
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="panel-group m-bot20" id="accordionTwo">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a id="accordionCountry" class="accordion-toggle color-btn-new-sites" data-toggle="collapse" data-parent="#accordionTwo" href="#collapseTwo">
+                                                        New country
+                                                   </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse  collapse">
+                                            <div class="panel-body">
+                                                <form role="form">
+                                                    <div class="form-group">
+                                                        <label for="txt_nameCountry">Name country:</label>
+                                                        <input type="text" class="form-control" id="txt_nameCountry" name="txt_nameCountry">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="txt_initials">Initials:</label>
+                                                        <input type="text" class="form-control" id="txt_initials" name="txt_initials">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="sel_tiers">Tiers</label>
+                                                        <select class="form-control m-b-12" id="sel_tiers" name="sel_tiers">                      
+                                                                <option  selected value="SELECT">---Select---</option>                                        
+                                                            </select>
+                                                    </div>
+                                                    <button id="btn_addCountry" type="button" class="btn btn-info">Confirm</button>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!--tab nav start-->
+                                <section class="panel general">
+                                    <header class="panel-heading tab-bg-dark-navy-blue">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a data-toggle="tab" href="#dataTableCountriesAdd">List of aggregated countries</a>
+                                            </li>
+                                        </ul>
+                                    </header>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div id="dataTableCountriesAdd" class="tab-pane active">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="panel">
+
+                                                            <div class="panel-body table-responsive">
+                                                                <table class="table table-condensed table-hover" id="tableCountry" width="100%">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>NAME</th>
+                                                                            <th>INITIALS</th>
+                                                                            <th>TIERS</th>
+                                                                            <th>OPCIONS</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tfoot>
+                                                                    </tfoot>
+                                                                    <tbody id="detailCountries">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <!-- /.box-body -->
+                                                        </div>
+                                                        <!-- /.box -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--tab nav start-->
+                            </div>
+                        </div>
+
+
+
+                        <!--||||||||||||||||||||||||||||Inicio de Modal country |||||||||||||||||||||||||||||-->
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalCountry" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">DETAIL</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="txt_showNameCountry">Name country:</label>
+                                            <input type="text" class="form-control" id="txt_showNameCountry" name="txt_showNameCountry" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt_showInitialsCountry">Initials:</label>
+                                            <input type="text" class="form-control" id="txt_showInitialsCountry" name="txt_showInitialsCountry" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sel_ShowtiersCountry">Tiers</label>
+                                            <select class="form-control m-b-12" id="sel_ShowtiersCountry" name="sel_ShowtiersCountry" disabled>                      
+                                                    <option  selected value="SELECT">---Select---</option>                                        
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div>
+                                            <button type="button" class="btn btn-success" onclick="EnableDisable('mCountry')" id="btnEnableDisable1" style="float: left;">Enable</button>
+                                            <button type="button" class="btn btn-success" onclick="updateCountry()" id="btn_updatecoun" style="display: none; float: left;">Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--|||||||||||||||||||||||||||||||fin de modal country |||||||||||||||||||||||||||||-->
+
+
+                        <!--||||||||||||||||||||||||||||Inicio de Modal delete Country |||||||||||||||||||||||||||||-->
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalConfirmDeleteCountry" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">Delete</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Please press CONFIRM </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div>
+                                            <button type="button" class="btn btn-success" onclick="DeleteCountry()" id="btnDeleteCountri" style="float: left;" data-dismiss="modal">CONFIRM</button>
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--|||||||||||||||||||||||||||||||fin de modal DELETE tier |||||||||||||||||||||||||||||-->
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="panel-group m-bot20" id="accordionThree">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a id="accordionTopic" class="accordion-toggle color-btn-new-sites" data-toggle="collapse" data-parent="#accordionThree" href="#collapseThree">
+                                                        New topic
+                                                   </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse  collapse">
+                                            <div class="panel-body">
+                                                <div class="col-md-12">
+                                                    <form role="form">
+                                                        <div class="form-group">
+                                                            <label for="txt_nameTopic">Name topic:</label>
+                                                            <input type="text" class="form-control" id="txt_nameTopic" name="txt_nameTopic">
+                                                        </div>
+
+                                                        <button id="btn_addTopic" type="button" class="btn btn-info">Confirm</button>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!--tab nav start-->
+                                <section class="panel general">
+                                    <header class="panel-heading tab-bg-dark-navy-blue">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a data-toggle="tab" href="#dataTableTopicAdd">List of aggregated topic</a>
+                                            </li>
+                                        </ul>
+                                    </header>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div id="dataTableTopicAdd" class="tab-pane active">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="panel">
+
+                                                            <div class="panel-body table-responsive">
+                                                                <table class="table table-condensed table-hover" id="tableTopic" width="100%">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>NAME</th>
+                                                                            <th>OPCIONS</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tfoot>
+                                                                    </tfoot>
+                                                                    <tbody id="detailTopics">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <!-- /.box-body -->
+                                                        </div>
+                                                        <!-- /.box -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--tab nav start-->
+
+                            </div>
+                        </div>
+
+
+
+
+                        <!--||||||||||||||||||||||||||||Inicio de Modal topic |||||||||||||||||||||||||||||-->
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalTopic" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">DETAIL</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="txt_showNameTopic">Name topic:</label>
+                                            <input type="text" class="form-control" id="txt_showNameTopic" name="txt_showNameTopic" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div>
+                                            <button type="button" class="btn btn-success" onclick="EnableDisable('mTopic')" id="btnEnableDisable2" style="float: left;">Enable</button>
+                                            <button type="button" class="btn btn-success" onclick="updateTopic()" id="btn_updatetopi" style="display: none; float: left;">Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--|||||||||||||||||||||||||||||||fin de modal topic |||||||||||||||||||||||||||||-->
+
+
+
+                        <!--||||||||||||||||||||||||||||Inicio de Modal delete Topic |||||||||||||||||||||||||||||-->
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalConfirmDeleteTopic" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">Delete</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Please press CONFIRM </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div>
+                                            <button type="button" class="btn btn-success" onclick="DeleteTopic()" id="btnDeleteTopic" style="float: left;" data-dismiss="modal">CONFIRM</button>
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--|||||||||||||||||||||||||||||||fin de modal DELETE tier |||||||||||||||||||||||||||||-->
+                    </section>
+                    <!-- /.content -->
+
+
+                </aside>
+                <!-- /.right-side -->
+
+        </div>
+        <!-- ./wrapper -->
+
+        <%- include ../templates/userAdmin/importScripts.ejs %>
+
+            <!-- daterangepicker -->
+            <script src="./utilities/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+
+            <!-- iCheck -->
+            <script src="./utilities/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+
+            <!-- calendar -->
+            <script src="./utilities/js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+
+            <!-- datatable -->
+            <script type="text/javascript" src="./utilities/js/jquery.dataTables.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="./utilities/css/jquery.dataTables.min.css" />
+
+            <script src="./utilities/js/WhatPush/Admini/adminAppSeting.js" type="text/javascript"></script>
+
+
+
+
+</body>
+
+</html>

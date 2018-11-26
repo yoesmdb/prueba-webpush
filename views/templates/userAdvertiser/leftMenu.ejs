@@ -1,0 +1,103 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+
+    <section class="sidebar">
+        <!-- Sidebar user-panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="./utilities/images/user.jpg" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+                <p>Hello, Advertiser</p>
+            </div>
+        </div>
+        <!--./user-panel -->
+
+        <!-- sidebar-menu -->
+        <ul class="sidebar-menu">
+
+            <% if (active == 'AdvertiserStatistics') { %>
+                <li class="active">
+                    <a href="/AdvertiserStatistics">
+                        <i class="fa fa-desktop"></i>
+                        <span>Statistics</span>
+                    </a>
+                </li>
+                <% }else { %>
+                    <li>
+                        <a href="/AdvertiserStatistics">
+                            <i class="fa fa-desktop"></i>
+                            <span>Statistics</span>
+                        </a>
+                    </li>
+                    <% } %>
+
+                        <% if (active == 'AdvertiserFinance') { %>
+                            <li class="active">
+                                <a href="/AdvertiserFinance">
+                                    <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                    <span>Finances</span>
+                                </a>
+                            </li>
+                            <% }else { %>
+                                <li>
+                                    <a href="/AdvertiserFinance">
+                                        <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                        <span>Finances</span>
+                                    </a>
+                                </li>
+                                <% } %>
+
+                                    <% if (active == 'AdvertiserCampaings') { %>
+                                        <li class="active">
+                                            <a href="/AdvertiserCampaings">
+                                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                <span>Campaings</span>
+                                            </a>
+                                        </li>
+                                        <% }else { %>
+                                            <li>
+                                                <a href="/AdvertiserCampaings">
+                                                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                    <span>Campaings</span>
+                                                </a>
+                                            </li>
+                                            <% } %>
+
+                                                <% if (active == 'AdvertiserSupport') { %>
+                                                    <li class="active">
+                                                        <a href="/AdvertiserSupport">
+                                                            <i class="fa fa-cog" aria-hidden="true"></i>
+                                                            <span>Support</span>
+                                                        </a>
+                                                    </li>
+                                                    <% }else { %>
+                                                        <li>
+                                                            <a href="/AdvertiserSupport">
+                                                                <i class="fa fa-cog" aria-hidden="true"></i>
+                                                                <span>Support</span>
+                                                            </a>
+                                                        </li>
+                                                        <% } %>
+
+                                                            <% if (active == 'AdvertiserAcademy') { %>
+                                                                <li class="active">
+                                                                    <a href="/AdvertiserAcademy">
+                                                                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                                                        <span>Academy</span>
+                                                                    </a>
+                                                                </li>
+                                                                <% }else { %>
+                                                                    <li>
+                                                                        <a href="/AdvertiserAcademy">
+                                                                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                                                            <span>Academy</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <% } %>
+
+        </ul>
+        <!-- ./sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+</aside>

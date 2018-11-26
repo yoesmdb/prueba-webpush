@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ../templates/userAdmin/head.ejs %>
+</head>
+
+<body class="skin-black">
+
+    <%- include ../templates/userAdmin/topBar.ejs %>
+
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+
+            <%- include ../templates/userAdmin/leftMenu.ejs %>
+
+                <aside class="right-side">
+                    <section class="content">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!--tab nav start-->
+                                <section class="panel general">
+                                    <header class="panel-heading tab-bg-dark-navy-blue">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a data-toggle="tab" href="#dataTableUsersAdd">List of aggregated Users</a>
+                                            </li>
+                                        </ul>
+                                    </header>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div id="dataTableUsersAdd" class="tab-pane active">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="panel">
+
+                                                            <div class="panel-body table-responsive">
+                                                                <table class="table table-condensed table-hover" id="tableUsers" width="100%">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>TYPE</th>
+                                                                            <th>USER</th>
+                                                                            <th>NAME</th>
+                                                                            <th>LAST NAME</th>
+                                                                            <th>PHONE</th>
+                                                                            <th>COMPANY</th>
+                                                                            <th>COUNTRY</th>
+                                                                            <th>STATE</th>
+                                                                            <th>DATE ADMISSION</th>
+                                                                            <th>OPTION</th>
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    <tfoot>
+
+                                                                    </tfoot>
+
+                                                                    <tbody id="detailUsers">
+                                                                    </tbody>
+
+
+                                                                </table>
+                                                            </div>
+                                                            <!-- /.box-body -->
+                                                        </div>
+                                                        <!-- /.box -->
+                                                    </div>
+
+                                                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalEdit" class="modal fade">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                                                    <h4 class="modal-title">EDIT URL</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1">FSFSFSDF</label>
+
+                                                                    </div>
+                                                                    <a class="btn btn-default">Confirm</a>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalDetail" class="modal fade">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                                                    <h4 class="modal-title">DETAIL</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--tab nav start-->
+
+                            </div>
+                        </div>
+
+                    </section>
+                    <!-- /.content -->
+
+
+                </aside>
+                <!-- /.right-side -->
+
+        </div>
+        <!-- ./wrapper -->
+
+        <%- include ../templates/userAdmin/importScripts.ejs %>
+
+            <!-- daterangepicker -->
+            <script src="./utilities/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+
+            <!-- iCheck -->
+            <script src="./utilities/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+
+            <!-- calendar -->
+            <script src="./utilities/js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+
+            <!-- datatable -->
+            <script type="text/javascript" src="./utilities/js/jquery.dataTables.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="./utilities/css/jquery.dataTables.min.css" />
+
+            <!--<script src="./utilities/js/WhatPush/Editor/editorDB-sites.js" type="text/javascript"></script>-->
+
+
+
+
+</body>
+
+</html>

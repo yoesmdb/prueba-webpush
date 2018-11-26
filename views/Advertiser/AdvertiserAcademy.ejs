@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ../templates/userAdvertiser/head.ejs %>
+</head>
+
+<body class="skin-black">
+
+    <%- include ../templates/userAdvertiser/topBar.ejs %>
+
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+
+            <%- include ../templates/userAdvertiser/leftMenu.ejs %>
+
+                <aside class="right-side">
+
+                    <section class="content">
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="small-stat clearfix">
+                                    <span class="small-stat-icon orange"><i class="fa fa-gavel"></i></span>
+                                    <div class="small-stat-info">
+                                        <span>320</span> New Order Received
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="small-stat clearfix">
+                                    <span class="small-stat-icon tar"><i class="fa fa-tag"></i></span>
+                                    <div class="small-stat-info">
+                                        <span>22,450</span> Copy Sold Today
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="small-stat clearfix">
+                                    <span class="small-stat-icon pink"><i class="fa fa-money"></i></span>
+                                    <div class="small-stat-info">
+                                        <span>34,320</span> Dollar Profit Today
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="small-stat clearfix">
+                                    <span class="small-stat-icon green"><i class="fa fa-eye"></i></span>
+                                    <div class="small-stat-info">
+                                        <span>32720</span> Unique Visitors
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main row -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>HOLA MUNDO AdvertiserAcademy...</h1>
+                            </div>
+                        </div>
+                        <!-- row end -->
+
+                    </section>
+                    <!-- /.content -->
+
+                    <%- include ../templates/userAdvertiser/footer.ejs %>
+                </aside>
+                <!-- /.right-side -->
+
+        </div>
+        <!-- ./wrapper -->
+
+        <%- include ../templates/userAdvertiser/importScripts.ejs %>
+
+            <!-- daterangepicker -->
+            <script src="./utilities/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+
+            <!-- iCheck -->
+            <script src="./utilities/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+
+            <!-- calendar -->
+            <script src="./utilities/js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+
+</body>
+
+</html>
